@@ -1,0 +1,22 @@
+Given a positive integer which fits in a 32 bit signed integer, find if it can be expressed as A^P where P > 1 and A > 0. A and P both should be integers.
+
+Example
+
+Input : 4
+Output : True  //
+
+int Solution::isPower(int A) {
+    if(A==0 || A==1) return 1;
+    int p=2;
+    float x= pow(A,1.0/p);
+    while(int(x)>1)
+    {
+        if(x-int(x)==0)
+        return 1;
+        
+        p++;
+        
+        x=pow(A,1.0/p);
+    }
+    return 0;
+}
